@@ -8,28 +8,81 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AbstractVehicle',
+            name="AbstractVehicle",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Car',
+            name="Car",
             fields=[
-                ('abstractvehicle_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='cars.abstractvehicle')),
-                ('brand', models.CharField(max_length=30, verbose_name='Car brand')),
-                ('model', models.CharField(max_length=30, verbose_name='Car model')),
-                ('registration_number', models.CharField(max_length=8, verbose_name='Registration number')),
-                ('max_passenger_capacity', models.IntegerField(choices=[(1, 'One'), (3, 'Three'), (4, 'Four'), (6, 'Six'), (8, 'Eight')], default=1, verbose_name='Maximum passenger capacity')),
-                ('production_year', models.IntegerField(verbose_name='Year of production')),
-                ('car_class', models.CharField(choices=[('FRST', 'First class'), ('BSNS', 'Business class'), ('ECON', 'Economy class')], default='ECON', max_length=20, verbose_name='Car class')),
-                ('low_emission', models.BooleanField(default=False, verbose_name='Low emission engine (EV or Hybrid)')),
+                (
+                    "abstractvehicle_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="cars.abstractvehicle",
+                    ),
+                ),
+                ("brand", models.CharField(max_length=30, verbose_name="Car brand")),
+                ("model", models.CharField(max_length=30, verbose_name="Car model")),
+                (
+                    "registration_number",
+                    models.CharField(max_length=8, verbose_name="Registration number"),
+                ),
+                (
+                    "max_passenger_capacity",
+                    models.IntegerField(
+                        choices=[
+                            (1, "One"),
+                            (3, "Three"),
+                            (4, "Four"),
+                            (6, "Six"),
+                            (8, "Eight"),
+                        ],
+                        default=1,
+                        verbose_name="Maximum passenger capacity",
+                    ),
+                ),
+                (
+                    "production_year",
+                    models.IntegerField(verbose_name="Year of production"),
+                ),
+                (
+                    "car_class",
+                    models.CharField(
+                        choices=[
+                            ("FRST", "First class"),
+                            ("BSNS", "Business class"),
+                            ("ECON", "Economy class"),
+                        ],
+                        default="ECON",
+                        max_length=20,
+                        verbose_name="Car class",
+                    ),
+                ),
+                (
+                    "low_emission",
+                    models.BooleanField(
+                        default=False, verbose_name="Low emission engine (EV or Hybrid)"
+                    ),
+                ),
             ],
-            bases=('cars.abstractvehicle',),
+            bases=("cars.abstractvehicle",),
         ),
     ]

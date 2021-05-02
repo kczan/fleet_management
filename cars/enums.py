@@ -11,6 +11,6 @@ class MaxPassengerCapacityChoices(models.IntegerChoices):
 
 
 class CarClassChoices(models.TextChoices):
-    FIRST = 'FRST', _('First class')
-    BUSINESS = 'BSNS', _('Business class')
-    ECONOMY = 'ECON', _('Economy class')
+    FIRST = "FRST", _("First class")
+    BUSINESS = "BSNS", _("Business class")
+    ECONOMY = "ECON", _("Economy class")
